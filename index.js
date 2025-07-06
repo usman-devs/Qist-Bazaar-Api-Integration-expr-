@@ -7,6 +7,12 @@ const PORT = 3000;
 
 app.use(bodyParser.json());
 
+// Default root route to avoid "Cannot GET /"
+app.get('/', (req, res) => {
+  res.send('Express API is running!');
+});
+
+
 // GET Request to External API
 app.get('/api/categories', async (req, res) => {
   try {
